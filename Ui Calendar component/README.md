@@ -1,6 +1,7 @@
 # UI Calendar Component
 
 Remember to install TailwindCSS.
+FGully integfrated with TailwindCSS automatic dark mode - so try to switch your system preference to dark mode, and see the magic.
 
 This design was created by [bg-d](https://dribbble.com/bg-d)
 
