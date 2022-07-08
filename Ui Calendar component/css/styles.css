@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.color.active:before {
+  opacity:1;
+  width:1.75rem;
+  height:1.75rem;
+  border-color:inherit;
+}
+
+.day.active{
+    background-color:rgb(59,130,246);
+    color:#fff;
+}
+
+#calendarComponent.active{
+    top:calc(100%+20px);
+    opacity: 1;
+}

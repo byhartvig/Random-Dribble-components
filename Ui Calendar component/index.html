@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Calendar component</title>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- TailwindCSS -->
+    <link rel="stylesheet" href="css/output.css">
+    
+</head>
+<body class=" bg-gray-100 flex items-center justify-center h-screen dark:bg-gray-900">
+    <!-- Main component -->
+    <div class=" bg-white border border-gray-200 p-8 rounded-lg dark:bg-gray-800 dark:border-gray-700">
+
+        <!-- Event name -->
+        <div class="flex flex-col mb-6">
+            <label for="event" class=" text-sm text-gray-400 mb-2">Event name</label>
+            <input type="text" id="event" placeholder="Type event name" class="border border-gray-300 w-72 px-3 py-2 rounded-md bg-gray-50 text-md outline-none text-gray-800 font-medium  placeholder:font-normal dark:text-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder:text-gray-500">
+        </div>
+
+        <!-- Color -->
+        <div class="flex w-full justify-between">
+            <div class="color relative h-5 w-5 rounded-full border border-green-400 bg-green-400 cursor-pointer  before:transition-all before:opacity-0 before:w-5 before:h-5 before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:border before:rounded-full"></div>
+            <div class="color relative h-5 w-5 rounded-full border border-teal-400 bg-teal-400 cursor-pointer  before:transition-all before:opacity-0 before:w-5 before:h-5 before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:border before:rounded-full"></div>
+            <div class="color relative h-5 w-5 rounded-full border border-blue-400 bg-blue-400 cursor-pointer  before:transition-all before:opacity-0 before:w-5 before:h-5 before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:border before:rounded-full"></div>
+            <div class="color relative h-5 w-5 rounded-full border border-indigo-400 bg-indigo-400 cursor-pointer  before:transition-all before:opacity-0 before:w-5 before:h-5 before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:border before:rounded-full"></div>
+            <div class="color relative h-5 w-5 rounded-full border border-purple-400 bg-purple-400 cursor-pointer  before:transition-all before:opacity-0 before:w-5 before:h-5 before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:border before:rounded-full"></div>
+            <div class="color relative h-5 w-5 rounded-full border border-pink-400 bg-pink-400 cursor-pointer  before:transition-all before:opacity-0 before:w-5 before:h-5 before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:border before:rounded-full"></div>
+            <div class="color relative h-5 w-5 rounded-full border border-orange-400 bg-orange-400 cursor-pointer  before:transition-all before:opacity-0 before:w-5 before:h-5 before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:border before:rounded-full"></div>
+            <div class="color relative h-5 w-5 rounded-full border border-yellow-400 bg-yellow-400 cursor-pointer  before:transition-all before:opacity-0 before:w-5 before:h-5 before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:border before:rounded-full"></div>
+            <div class="color relative h-5 w-5 rounded-full border border-gray-400 bg-gray-400 cursor-pointer  before:transition-all before:opacity-0 before:w-5 before:h-5 before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:border before:rounded-full"></div>
+        </div>
+
+        <!-- Date -->
+        <div class="flex flex-col mt-6 relative">
+            <label for="date" class=" text-sm text-gray-400 mb-2">Start date</label>
+            <div type="text" id="date" class="border h-10 border-gray-300 w-72 px-3 py-2 rounded-md bg-gray-50 text-md outline-none text-gray-800 font-medium placeholder:font-normal dark:text-white dark:bg-gray-700 dark:border-gray-600"></div>
+
+            <!-- Date select box -->
+            <div id="calendarComponent" class="absolute top-[calc(100%+30px)] transition-all opacity-0 p-3 bg-white border border-gray-200 rounded-md w-full dark:bg-gray-800 dark:border-gray-700">
+                <!-- Box header -->
+                <div class="flex items-center justify-between">
+                    <div class="text-xs font-bold h-6 w-6 transition-all cursor-pointer hover:bg-gray-300 bg-gray-200 rounded-full flex items-center justify-center dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"><i class="fa-solid fa-angle-left"></i></div>
+                    <p id="currentMonth" class=" text-sm font-bold text-gray-800 dark:text-gray-400">July 2022</p>
+                    <div class="text-xs font-bold h-6 w-6 transition-all cursor-pointer hover:bg-gray-300 bg-gray-200 rounded-full flex items-center justify-center dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"><i class="fa-solid fa-angle-right"></i></div>
+                </div>
+
+                <!-- Box calendar -->
+                <div id="calendar" class="mt-4">
+                    <div class="flex flex-wrap text-xs text-gray-400 text-center" id="calendar-header"></div>
+                    <div class="flex flex-wrap text-sm text-gray-800 text-center mt-3" id="calendar-body"></div>
+                </div>
+
+                <!-- Box footer -->
+                <div class="pt-3 mt-4 flex justify-between items-center border-t border-gray-200">
+                    <div class="flex gap-2">
+                        <p class="text-sm text-gray-600 bg-gray-200 rounded-lg px-2 py-1 transition-all cursor-pointer hover:bg-blue-500 hover:text-white dark:bg-gray-700 dark:text-gray-400">Today</p>
+                       
+                    </div>
+                    <div>
+                        <label for="default-toggle" class="inline-flex flex-row-reverse relative items-center cursor-pointer">
+                            <div class="relative ml-2">
+                                <input type="checkbox" value="" id="default-toggle" class="sr-only peer">
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-500"></div>
+                            </div>
+                            <span class="ml-3 text-sm font-medium text-gray-500 dark:text-gray-300">Full day</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
